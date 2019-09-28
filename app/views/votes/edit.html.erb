@@ -2,5 +2,5 @@
 
 <%= render 'form', vote: @vote %>
 
-<%= link_to 'Show', @vote %> |
-<%= link_to 'Back', votes_path %>
+<%= link_to 'Show', election_vote_path(@election, @vote) %> |
+<%= link_to 'Back', election_votes_path(@election) %>
