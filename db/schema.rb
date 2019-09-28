@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_064508) do
+ActiveRecord::Schema.define(version: 2019_09_28_153402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 2019_09_28_064508) do
   create_table "elections", force: :cascade do |t|
     t.decimal "l", null: false
     t.decimal "m", null: false
-    t.decimal "a", null: false
-    t.decimal "b", null: false
+    t.decimal "g", null: false
+    t.decimal "n", null: false
+    t.decimal "n_sq", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
