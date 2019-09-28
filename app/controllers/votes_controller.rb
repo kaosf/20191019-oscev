@@ -1,34 +1,35 @@
 class VotesController < ApplicationController
+  before_action :set_election
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
-  # GET /votes
-  # GET /votes.json
+  # GET /elections/:election_id/votes
+  # GET /elections/:election_id/votes.json
   def index
-    @votes = Vote.all
+    @votes = @election.votes
   end
 
-  # GET /votes/1
-  # GET /votes/1.json
+  # GET /elections/:election_id/votes/1
+  # GET /elections/:election_id/votes/1.json
   def show
   end
 
-  # GET /votes/new
+  # GET /elections/:election_id/votes/new
   def new
-    @vote = Vote.new
+    @vote = @election.votes.build
   end
 
-  # GET /votes/1/edit
+  # GET /elections/:election_id/votes/1/edit
   def edit
   end
 
-  # POST /votes
-  # POST /votes.json
+  # POST /elections/:election_id/votes
+  # POST /elections/:election_id/votes.json
   def create
-    @vote = Vote.new(vote_params)
+    @vote = @election.votes.build(vote_params)
 
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
+        format.html { redirect_to election_vote_url(@election, @vote), notice: 'Vote was successfully created.' }
         format.json { render :show, status: :created, location: @vote }
       else
         format.html { render :new }
@@ -37,8 +38,8 @@ class VotesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /votes/1
-  # PATCH/PUT /votes/1.json
+  # PATCH/PUT /elections/:election_id/votes/1
+  # PATCH/PUT /elections/:election_id/votes/1.json
   def update
     respond_to do |format|
       if @vote.update(vote_params)
@@ -51,20 +52,24 @@ class VotesController < ApplicationController
     end
   end
 
-  # DELETE /votes/1
-  # DELETE /votes/1.json
+  # DELETE /elections/:election_id/votes/1
+  # DELETE /elections/:election_id/votes/1.json
   def destroy
     @vote.destroy
     respond_to do |format|
-      format.html { redirect_to votes_url, notice: 'Vote was successfully destroyed.' }
+      format.html { redirect_to election_votes_url(@election), notice: 'Vote was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+    def set_election
+      @election = Election.find(params[:election_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_vote
-      @vote = Vote.find(params[:id])
+      @vote = @election.votes.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

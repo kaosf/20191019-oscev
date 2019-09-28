@@ -15,5 +15,5 @@
   <%= @vote.r %>
 </p>
 
-<%= link_to 'Edit', edit_vote_path(@vote) %> |
-<%= link_to 'Back', votes_path %>
+<%= link_to 'Edit', edit_election_vote_path(@election, @vote) %> |
+<%= link_to 'Back', election_votes_path(@election) %>
