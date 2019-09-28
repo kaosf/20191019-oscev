@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>L:</strong>
+  <%= @election.l %>
+</p>
+
+<p>
+  <strong>M:</strong>
+  <%= @election.m %>
+</p>
+
+<p>
+  <strong>A:</strong>
+  <%= @election.a %>
+</p>
+
+<p>
+  <strong>B:</strong>
+  <%= @election.b %>
+</p>
+
+<%= link_to 'Edit', edit_election_path(@election) %> |
+<%= link_to 'Back', elections_path %>
