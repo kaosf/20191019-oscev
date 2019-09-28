@@ -5,8 +5,9 @@ RSpec.describe "elections/edit", type: :view do
     @election = assign(:election, Election.create!(
       :l => "9.99",
       :m => "9.99",
-      :a => "9.99",
-      :b => "9.99"
+      :g => "9.99",
+      :n => "9.99",
+      :n_sq => "9.99"
     ))
   end
 
@@ -19,9 +20,11 @@ RSpec.describe "elections/edit", type: :view do
 
       assert_select "input[name=?]", "election[m]"
 
-      assert_select "input[name=?]", "election[a]"
+      assert_select "input[name=?]", "election[g]"
 
-      assert_select "input[name=?]", "election[b]"
+      assert_select "input[name=?]", "election[n]"
+
+      assert_select "input[name=?]", "election[n_sq]"
     end
   end
 end
