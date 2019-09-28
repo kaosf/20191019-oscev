@@ -15,5 +15,5 @@
   <%= @candidate.name %>
 </p>
 
-<%= link_to 'Edit', edit_candidate_path(@candidate) %> |
-<%= link_to 'Back', candidates_path %>
+<%= link_to 'Edit', edit_election_candidate_path(@election, @candidate) %> |
+<%= link_to 'Back', election_candidates_path(@election) %>

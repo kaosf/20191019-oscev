@@ -18,9 +18,9 @@
         <td><%= candidate.election_id %></td>
         <td><%= candidate.number %></td>
         <td><%= candidate.name %></td>
-        <td><%= link_to 'Show', candidate %></td>
-        <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
-        <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', election_candidate_path(@election, candidate) %></td>
+        <td><%= link_to 'Edit', edit_election_candidate_path(@election, candidate) %></td>
+        <td><%= link_to 'Destroy', election_candidate_url(@election, candidate), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Candidate', new_candidate_path %>
+<%= link_to 'New Candidate', new_election_candidate_path(@election) %>
