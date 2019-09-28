@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_043939) do
+ActiveRecord::Schema.define(version: 2019_09_28_053059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "candidates", force: :cascade do |t|
+    t.bigint "election_id", null: false
+    t.integer "number", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["election_id"], name: "index_candidates_on_election_id"
+  end
 
   create_table "elections", force: :cascade do |t|
     t.decimal "l", null: false
@@ -24,4 +33,5 @@ ActiveRecord::Schema.define(version: 2019_09_28_043939) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "candidates", "elections"
 end
