@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>L</th>
-      <th>M</th>
-      <th>A</th>
-      <th>B</th>
+      <th>λ</th>
+      <th>μ</th>
+      <th>α</th>
+      <th>β</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
   <tbody>
     <% @elections.each do |election| %>
       <tr>
-        <td><%= election.l %></td>
-        <td><%= election.m %></td>
-        <td><%= election.a %></td>
-        <td><%= election.b %></td>
+        <td><%= election.l.to_i %></td>
+        <td><%= election.m.to_i %></td>
+        <td><%= election.a.to_i %></td>
+        <td><%= election.b.to_i %></td>
         <td><%= link_to 'Show', election %></td>
         <td><%= link_to 'Edit', edit_election_path(election) %></td>
         <td><%= link_to 'Destroy', election, method: :delete, data: { confirm: 'Are you sure?' } %></td>
