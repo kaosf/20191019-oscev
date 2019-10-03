@@ -9,6 +9,7 @@ RSpec.describe "elections/index", type: :view do
         :g => 38192,
         :n => 38191,
         :n_sq => 1458552481,
+        :b => 100,
       ),
       Election.create!(
         :l => 1260,
@@ -16,6 +17,7 @@ RSpec.describe "elections/index", type: :view do
         :g => 38192,
         :n => 38191,
         :n_sq => 1458552481,
+        :b => 100,
       )
     ])
   end
@@ -27,5 +29,6 @@ RSpec.describe "elections/index", type: :view do
     assert_select "tr>td", :text => "38192".to_s, :count => 2
     assert_select "tr>td", :text => "38191".to_s, :count => 2
     assert_select "tr>td", :text => "1458552481".to_s, :count => 2
+    assert_select "tr>td", :text => "100".to_s, :count => 2
   end
 end

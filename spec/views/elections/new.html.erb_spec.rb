@@ -7,7 +7,8 @@ RSpec.describe "elections/new", type: :view do
       :m => "9.99",
       :g => "9.99",
       :n => "9.99",
-      :n_sq => "9.99"
+      :n_sq => "9.99",
+      :b => 100
     ))
   end
 
@@ -25,6 +26,8 @@ RSpec.describe "elections/new", type: :view do
       assert_select "input[name=?]", "election[n]"
 
       assert_select "input[name=?]", "election[n_sq]"
+
+      assert_select "input[name=?]", "election[b]"
     end
   end
 end

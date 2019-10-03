@@ -6,8 +6,7 @@
   <thead>
     <tr>
       <th>Election</th>
-      <th>M</th>
-      <th>R</th>
+      <th>C</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +15,7 @@
     <% @votes.each do |vote| %>
       <tr>
         <td><%= vote.election_id %></td>
-        <td><%= vote.m %></td>
-        <td><%= vote.r %></td>
+        <td><%= vote.c %></td>
         <td><%= link_to 'Show', election_vote_path(@election, vote) %></td>
         <td><%= link_to 'Edit', edit_election_vote_path(@election, vote) %></td>
         <td><%= link_to 'Destroy', election_vote_url(@election, vote), method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -5,5 +5,6 @@ FactoryBot.define do
     g { 38192 }
     n { 38191 }
     n_sq { 1458552481 }
+    b { 100 }
   end
 end

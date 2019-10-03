@@ -7,7 +7,8 @@ RSpec.describe "elections/show", type: :view do
       :m => "9.98",
       :g => "9.97",
       :n => "9.96",
-      :n_sq => "9.95"
+      :n_sq => "9.95",
+      :b => 100
     ))
   end
 
@@ -18,5 +19,6 @@ RSpec.describe "elections/show", type: :view do
     expect(rendered).to match(/9.97/)
     expect(rendered).to match(/9.96/)
     expect(rendered).to match(/9.95/)
+    expect(rendered).to match(/100/)
   end
 end

@@ -5,13 +5,11 @@ RSpec.describe "votes/index", type: :view do
     assign(:votes, [
       Vote.create!(
         :election => nil,
-        :m => "9.99",
-        :r => "9.99"
+        :c => "9.99"
       ),
       Vote.create!(
         :election => nil,
-        :m => "9.99",
-        :r => "9.99"
+        :c => "9.99"
       )
     ])
   end
@@ -19,7 +17,6 @@ RSpec.describe "votes/index", type: :view do
   it "renders a list of votes" do
     render
     assert_select "tr>td", :text => nil.to_s, :count => 2
-    assert_select "tr>td", :text => "9.99".to_s, :count => 2
     assert_select "tr>td", :text => "9.99".to_s, :count => 2
   end
 end

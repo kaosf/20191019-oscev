@@ -4,8 +4,7 @@ RSpec.describe "votes/edit", type: :view do
   before(:each) do
     @vote = assign(:vote, Vote.create!(
       :election => nil,
-      :m => "9.99",
-      :r => "9.99"
+      :c => "9.99"
     ))
   end
 

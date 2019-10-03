@@ -10,6 +10,7 @@
       <th>g</th>
       <th>n</th>
       <th>n2</th>
+      <th>b</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
         <td><%= election.g.to_i %></td>
         <td><%= election.n.to_i %></td>
         <td><%= election.n_sq.to_i %></td>
+        <td><%= election.b.to_i %></td>
         <td><%= link_to 'Show', election %></td>
         <td><%= link_to 'Edit', edit_election_path(election) %></td>
         <td><%= link_to 'Destroy', election, method: :delete, data: { confirm: 'Are you sure?' } %></td>
