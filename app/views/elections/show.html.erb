@@ -31,4 +31,6 @@
 </p>
 
 <%= link_to 'Edit', edit_election_path(@election) %> |
-<%= link_to 'Back', elections_path %>
+<%= link_to 'Back', elections_path %> |
+<%= link_to 'Candidates', election_candidates_path(@election) %> |
+<%= link_to 'Votes', election_votes_path(@election) %>
