@@ -1,7 +1,7 @@
 <p><%= @election.tally %></p>
 <p><%= @election.tally_decrypted %></p>
 
-<table>
+<table class="table">
   <% @election.result[0...-1].each do |e| %>
     <tr>
       <td><%= @election.candidates.find_by(number: e[0]).name %></td>
