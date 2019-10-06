@@ -1,2 +1,22 @@
-<h1>Public::Elections#show</h1>
-<p>Find me in app/views/public/elections/show.html.erb</p>
+<p>
+  <strong>G:</strong>
+  <%= @election.g %>
+</p>
+
+<p>
+  <strong>N:</strong>
+  <%= @election.n %>
+</p>
+
+<p>
+  <strong>N2:</strong>
+  <%= @election.n_sq %>
+</p>
+
+<p>
+  <strong>B:</strong>
+  <%= @election.b %>
+</p>
+
+<%= link_to 'Back', public_elections_path %> |
+<%= link_to 'New vote', new_election_vote_path(@election) %>
