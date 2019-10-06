@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'elections/index'
+    get 'elections/show'
+  end
   resources :elections do
     resources :candidates
     resources :votes
