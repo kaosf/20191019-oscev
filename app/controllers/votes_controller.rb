@@ -15,7 +15,12 @@ class VotesController < ApplicationController
 
   # GET /elections/:election_id/votes/new
   def new
-    @vote = @election.votes.build
+    @vote =
+      if params[:c].present?
+        @election.votes.build c: params[:c].to_i
+      else
+        @election.votes.build
+      end
   end
 
   # GET /elections/:election_id/votes/1/edit
