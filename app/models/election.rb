@@ -17,7 +17,7 @@ class Election < ApplicationRecord
   end
 
   def tally
-    sum = Paillier.encrypt pubkey, 0
+    sum = 1 # g ** 0
     votes.each do |vote|
       sum = Paillier.eAdd pubkey, sum, vote.c.to_i
     end
