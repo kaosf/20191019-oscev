@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <p>
   <strong>G:</strong>
   <%= @election.g %>
@@ -21,3 +23,7 @@
 <%= link_to 'Back', public_elections_path %> |
 <%= link_to 'New vote', new_election_vote_path(@election) %> |
 <%= link_to 'New ballot', new_election_ballot_path(@election) %>
+
+<br>
+
+<%= link_to 'Destroy all votes', election_all_votes_url(@election), method: :delete, data: { confirm: 'Are you sure?' } %>
