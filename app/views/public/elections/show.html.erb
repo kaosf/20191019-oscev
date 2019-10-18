@@ -36,4 +36,5 @@
   </tbody>
 </table>
 
+<%= link_to 'Admin', election_path(@election) %> |
 <%= link_to 'Destroy all votes', election_all_votes_url(@election), method: :delete, data: { confirm: 'Are you sure?' } %>
