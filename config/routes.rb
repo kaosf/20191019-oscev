@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :ballots
   root to: 'public/elections#index'
   namespace :public do
     resources :elections, only: %i(index show)
   end
 
   resources :elections do
+    resources :ballots, only: %i(new)
     resources :candidates
     resources :votes
     resources :results, only: %i(index)
