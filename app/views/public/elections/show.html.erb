@@ -21,8 +21,12 @@
 </p>
 
 <%= link_to 'Back', public_elections_path %> |
-<%= link_to 'New vote', new_election_vote_path(@election) %> |
+<%= link_to 'New vote', new_election_vote_path(@election) %>
+
+<br>
+
 <%= link_to 'New ballot', new_election_ballot_path(@election) %>
+<div><%= raw RQRCode::QRCode.new(new_election_ballot_url(@election), level: :l).as_svg(module_size: 3) %></div>
 
 <h2>Votes</h2>
 
