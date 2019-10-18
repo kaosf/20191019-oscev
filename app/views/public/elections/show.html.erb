@@ -2,28 +2,38 @@
 
 <p>
   <strong>G:</strong>
-  <%= @election.g %>
+  <%= @election.g.to_i %>
 </p>
 
 <p>
   <strong>N:</strong>
-  <%= @election.n %>
+  <%= @election.n.to_i %>
 </p>
 
 <p>
   <strong>N2:</strong>
-  <%= @election.n_sq %>
+  <%= @election.n_sq.to_i %>
 </p>
 
 <p>
   <strong>B:</strong>
-  <%= @election.b %>
+  <%= @election.b.to_i %>
 </p>
 
 <%= link_to 'Back', public_elections_path %> |
 <%= link_to 'New vote', new_election_vote_path(@election) %> |
 <%= link_to 'New ballot', new_election_ballot_path(@election) %>
 
-<br>
+<h2>Votes</h2>
+
+<table>
+  <tbody>
+    <% @election.votes.each do |vote| %>
+      <tr>
+        <td><%= vote.c.to_i %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Destroy all votes', election_all_votes_url(@election), method: :delete, data: { confirm: 'Are you sure?' } %>
