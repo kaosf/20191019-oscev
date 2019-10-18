@@ -1,1 +1,40 @@
-<p>Ballots new</p>
+<script>
+  window.n = "<%= @election.n.to_i %>";
+  window.n2 = "<%= @election.n_sq.to_i %>";
+  window.g = "<%= @election.g.to_i %>";
+  window.b = "<%= @election.b.to_i %>";
+  window.urlBase = "<%= new_election_vote_url %>";
+</script>
+<%= javascript_pack_tag 'ballot' %>
+
+<p>n: <%= @election.n.to_i %></p>
+<p>n2: <%= @election.n_sq.to_i %></p>
+<p>g: <%= @election.g.to_i %></p>
+<p>b: <%= @election.b.to_i %></p>
+<% @election.candidates.each do |candidate| %>
+  <div>
+    <p>
+    <%= candidate.number %>, <%= candidate.name %>, m: <%= @election.b.to_i ** (candidate.number - 1) %>
+    <button type="button" name="vote" value="<%= candidate.number %>" class="btn btn-primary btn-vote">これに投票</button>
+    </p>
+  </div>
+<% end %>
+<div>
+  <p>
+  棄権, m: 0
+  <button type="button" name="vote" value="0" class="btn btn-primary btn-vote">棄権投票</button>
+  </p>
+</div>
+
+<canvas id="ballot-canvas"></canvas>
+<p id="c">c: </p>
+<p id="m" style="visibility:hidden">m: </p>
+<p id="r" style="visibility:hidden">r: </p>
+  <script>
+    function toggleMRVisibility() {
+      const v = document.getElementById('m').style.visibility;
+      document.getElementById('m').style.visibility = (v == 'hidden' ? 'visible' : 'hidden');
+      document.getElementById('r').style.visibility = (v == 'hidden' ? 'visible' : 'hidden');
+    }
+  </script>
+<button type="button" name="toggleM" onclick="toggleMRVisibility();">m,r表示切り替え</button>
