@@ -34,6 +34,14 @@
 
 <br>
 
-<%= link_to 'New Election', '', onclick: "this.href='#{new_election_path}?bits='+document.getElementById('bits').value" %>
+<%= link_to 'New Election', '', onclick: "setHref(this)" %>
 <input type="text" id="bits" value="">
+<input type="text" id="base" value="100">
+<script>
+  function setHref(that) {
+    const bits = document.getElementById('bits').value;
+    const base = document.getElementById('base').value;
+    that.href=`<%= new_election_path %>?bits=${bits}&base=${base}`;
+  }
+</script>
 <%# ref. https://stackoverflow.com/questions/27148673/pass-input-tag-value-to-as-href-parameter %>

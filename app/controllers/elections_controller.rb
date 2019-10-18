@@ -16,7 +16,8 @@ class ElectionsController < ApplicationController
   def new
     if params[:bits].present?
       privkey, pubkey = Paillier.generateKeypair(params[:bits].to_i)
-      @election = Election.new l: privkey.l, m: privkey.m, g: pubkey.g, n: pubkey.n, b: 100
+      b = params[:base].present? ? params[:base] : 100
+      @election = Election.new l: privkey.l, m: privkey.m, g: pubkey.g, n: pubkey.n, b: b
     else
       @election = Election.new
     end
