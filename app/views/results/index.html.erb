@@ -1,5 +1,5 @@
-<p><%= @election.tally %></p>
-<p><%= @election.tally_decrypted %></p>
+<p>暗号化合計: <%= @election.tally %></p>
+<p>復号合計: <%= @election.tally_decrypted %></p>
 
 <table>
   <% @election.result[0...-1].each do |e| %>
